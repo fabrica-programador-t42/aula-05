@@ -34,11 +34,9 @@ function atualizarValorHora(id) {
 
 function perguntarValor() {
   let divBotoes = document.getElementById('botoes')
-  let tipoSelect = document.getElementById('tipo')
 
-  console.log(tipoSelect)
+  //console.log(tipoSelect)
   
-  tipoSelect.innerHTML = ''
   divBotoes.innerHTML = ''
 
   for (let index = 0; index < LISTA_VEICULOS.length; index++) {
@@ -51,10 +49,10 @@ function perguntarValor() {
     const botao = `
       <button onclick="atualizarValorHora('${item.id}')">${item.textoBotao}</button>
     `
-    const option = `<option value="${item.tipo}">${item.tipo.toUpperCase()}</option>`
-    console.log(botao);
+    // const option = `<option value="${item.tipo}">${item.tipo.toUpperCase()}</option>`
+    //console.log(botao);
     divBotoes.innerHTML += botao
-    tipoSelect.appendChild(option)
+    // tipoSelect.appendChild(option)
   }
 }
 
@@ -90,14 +88,15 @@ function adicionarCarro(){
     return
   }
 
-  const carro = {
+/*   const carro = {
     placa: placaInput,
     modelo: modeloInput,
     marca: marcaInput,
     cor: corInput,
     horaEntrada: new Date()
-  }
-
+  } */
+  const carro = new Carro(placaInput, modeloInput, marcaInput, corInput)
+  
   LISTA_CARROS.push(carro)
   
   limparCampos()
